@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'genres',
     'platforms',
     'studios',
+    'games',
 ]
 
 MIDDLEWARE = [
