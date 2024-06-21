@@ -1,10 +1,10 @@
-from ninja import NinjaAPI
+from ninja import Router
 from typing import List
 from .schemas import GenreSchema
 from .models import Genre
 
-api = NinjaAPI(urls_namespace='genres')
+router = Router(tags=['Genres'])
 
-@api.get('/', response=List[GenreSchema])
+@router.get('/', response=List[GenreSchema])
 def get_all(request):
   return Genre.objects.all()

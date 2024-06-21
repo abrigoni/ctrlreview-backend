@@ -1,10 +1,10 @@
-from ninja import NinjaAPI
+from ninja import Router
 from typing import List
 from .schemas import PlatformSchema
 from .models import Platform
 
-api = NinjaAPI(urls_namespace='platforms')
+router = Router(tags=['Platforms'])
 
-@api.get('/', response=List[PlatformSchema])
+@router.get('/', response=List[PlatformSchema])
 def get_all(request):
   return Platform.objects.all()

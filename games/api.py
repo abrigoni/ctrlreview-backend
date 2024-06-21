@@ -1,11 +1,11 @@
-from ninja import NinjaAPI
+from ninja import Router
 from typing import List
-from .schemas import Schema
+from .schemas import GameSchema
 from .models import Game
 
 
-api = NinjaAPI(urls_namespace='games')
+router = Router(tags=['Games'])
 
-@api.get('/', response=List[Schema])
+@router.get('/', response=List[GameSchema])
 def get_all(request):
   return Game.objects.all()

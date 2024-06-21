@@ -1,31 +1,19 @@
-"""
-URL configuration for ctrlreview_backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from genres.api import api as genres_api
-from platforms.api import api as platforms_api
-from studios.api import api as studios_api
-from games.api import api as games_api
+from ninja import NinjaAPI
+from genres.api import router as genres_router
+from platforms.api import router as platforms_router
+from studios.api import router as studios_router
+from games.api import router as games_router
 
+api = NinjaAPI()
+
+api.add_router(prefix='genres', router=genres_router)
+api.add_router(prefix='platforms', router=platforms_router)
+api.add_router(prefix='studios', router=studios_router)
+api.add_router(prefix='games', router=games_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/genres", genres_api.urls),
-    path("api/platforms", platforms_api.urls),
-    path("api/studios", studios_api.urls),
-    path("api/games", games_api.urls),
+    path("api/", api.urls),
 ]
