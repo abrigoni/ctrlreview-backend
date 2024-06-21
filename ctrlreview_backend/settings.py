@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # resources
     'genres',
-    'platforms'
+    'platforms',
+    'studios',
 ]
 
 MIDDLEWARE = [

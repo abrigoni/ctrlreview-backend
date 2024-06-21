@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from genres.api import api as genres_api
 from platforms.api import api as platforms_api
+from studios.api import api as studios_api
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/genres", genres_api.urls),
     path("api/platforms", platforms_api.urls),
+    path("api/studios", studios_api.urls)
 ]
