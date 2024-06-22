@@ -12,3 +12,6 @@ class Game(models.Model):
   studio = models.ForeignKey(Studio, on_delete=models.DO_NOTHING)
   platforms = models.ManyToManyField(Platform)
   genres = models.ManyToManyField(Genre)
+
+  def __str__(self):
+    return self.title
