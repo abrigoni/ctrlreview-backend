@@ -6,6 +6,7 @@ from genres.schemas import GenreSchema
 from platforms.schemas import PlatformSchema
 
 class GameSchema(Schema):
+  id: int
   title: str
   description: str
   release_date: date
