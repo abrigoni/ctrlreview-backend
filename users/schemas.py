@@ -9,3 +9,7 @@ class UserSchema(Schema):
   username: str
   email: str
 
+class RegisterSchema(Schema):
+  username: str
+  email: str
+  password: str
