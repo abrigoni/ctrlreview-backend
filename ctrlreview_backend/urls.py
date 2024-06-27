@@ -7,7 +7,9 @@ from studios.api import router as studios_router
 from games.api import router as games_router
 from users.api import router as users_router
 
-api = NinjaAPI()
+from users.auth import AuthBearer
+
+api = NinjaAPI(auth=AuthBearer())
 
 api.add_router(prefix='genres', router=genres_router)
 api.add_router(prefix='platforms', router=platforms_router)
