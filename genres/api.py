@@ -1,10 +1,13 @@
-from ninja import Router
 from typing import List
-from .schemas import GenreSchema
+
+from ninja import Router
+
 from .models import Genre
+from .schemas import GenreSchema
 
-router = Router(tags=['Genres'])
+router = Router(tags=["Genres"])
 
-@router.get('/', response=List[GenreSchema])
+
+@router.get("/", response=List[GenreSchema])
 def get_all(request):
-  return Genre.objects.all()
+    return Genre.objects.all()

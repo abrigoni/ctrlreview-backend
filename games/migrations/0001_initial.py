@@ -5,27 +5,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('genres', '0001_initial'),
-        ('platforms', '0001_initial'),
-        ('studios', '0001_initial'),
+        ("genres", "0001_initial"),
+        ("platforms", "0001_initial"),
+        ("studios", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Game',
+            name="Game",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, unique=True)),
-                ('description', models.TextField()),
-                ('release_date', models.DateField(null=True)),
-                ('image_url', models.CharField(max_length=255)),
-                ('genres', models.ManyToManyField(to='genres.genre')),
-                ('platforms', models.ManyToManyField(to='platforms.platform')),
-                ('studio', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='studios.studio')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, unique=True)),
+                ("description", models.TextField()),
+                ("release_date", models.DateField(null=True)),
+                ("image_url", models.CharField(max_length=255)),
+                ("genres", models.ManyToManyField(to="genres.genre")),
+                ("platforms", models.ManyToManyField(to="platforms.platform")),
+                (
+                    "studio",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to="studios.studio",
+                    ),
+                ),
             ],
         ),
     ]

@@ -1,15 +1,18 @@
 from ninja import Schema
 
+
 class LoginSchema(Schema):
-  username: str
-  password: str
+    username: str
+    password: str
+
 
 class UserSchema(Schema):
-  id: int
-  username: str
-  email: str
+    id: int
+    username: str
+    email: str
+
 
 class RegisterSchema(Schema):
-  username: str
-  email: str
-  password: str
+    username: str
+    email: str
+    password: str
