@@ -33,6 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# Add user own custom model
 AUTH_USER_MODEL = "users.User"
 
 # Application definition
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     "studios",
     "games",
     "users",
+    # apps
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "http://127.0.0.1:3000",
 ]
 
 ROOT_URLCONF = "ctrlreview_backend.urls"
