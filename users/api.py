@@ -34,3 +34,8 @@ def register(request, body: RegisterSchema):
         return {"message": "Register successful", "user": user_response, "token": token}
     else:
         return {"message": "Invalid credentials"}
+
+
+@router.get("/profile", response=UserSchema)
+def profile(request):
+    return request.user
